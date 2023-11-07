@@ -1,0 +1,12 @@
+public class Bag<T> {
+	T thing;
+	public Bag(T thing) {
+	this.thing = thing;
+	}
+}
+
+ex)
+
+new Bag<Book> (new Book());
+new Bah<pencilCase> (new PencilCase());
+
