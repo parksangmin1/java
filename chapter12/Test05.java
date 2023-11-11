@@ -36,7 +36,7 @@ import java.io.PrintWriter;
 			File file2 = new File(subDir, "file2.txt");
 			file2.createNewFile();
 			String file2Path = file2.getAbsolutePath();
-			System.out.println("절대 경로 :" + file2Path);
+			System.out.println("절대경로 : " + file2Path);
 			
 			String parentDir = file2.getParent();
 			System.out.println("부모경로 : " + parentDir);

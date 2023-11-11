@@ -26,6 +26,7 @@ public class Test15 {
 
 		for(int num: arr) {
 			System.out.print(" " + num);
+			
 		}
 		System.out.println(Arrays.toString(arr));
 		
