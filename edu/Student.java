@@ -36,14 +36,8 @@ class Student implements Comparable<Student> {
 
 	@Override
 	public int compareTo(Student o) {
-		if (this.sno == o.sno) {
-			return 0;
-		}else if (this.sno > o.sno){
-			return 1;
-		}else {
-			return -1;
-		}
-		
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
 

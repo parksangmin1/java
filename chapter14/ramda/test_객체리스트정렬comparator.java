@@ -70,10 +70,8 @@ public class test_객체리스트정렬comparator {
 		Comparator<Student2> compNo = new Comparator<Student2>(){
 			@Override
 			public int compare(Student2 s1, Student2 s2) {
-				return Integer.parseInt(s1.getSno()) - Integer.parseInt(s2.getSno()) ;
+				return Integer.parseInt(s1.getSno()) - Integer.parseInt(s2.getSno()) ;		
 				
-				
-				return 0;
 			}
 		};
 		//sno를 이용한 비교 
@@ -96,7 +94,7 @@ public class test_객체리스트정렬comparator {
 		al.add(new Student2("9", "홍길홍"));
 
 //		sortStudent(data, compName);
-		Arrays.sort(al, compName);//이게 문제가 있어서 sortStudent()를 구현
+		//Arrays.sort(al, compName);//이게 문제가 있어서 sortStudent()를 구현
 		//Collections.sort(al, compName);
 //		Collections.sort(al, new Comparator<Student2>() {
 //
