@@ -55,7 +55,7 @@ public class exam {
 		sortArray(arr);
 		
 		System.out.println(Arrays.toString(arr));
-		System.out.println(Arrays.toString(temp));
+//		System.out.println(Arrays.toString(temp));
 		
 //		int [][] ar = {{1,2,3,4}, 
 //						{5,6,7,8},

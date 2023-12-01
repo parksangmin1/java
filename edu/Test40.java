@@ -45,6 +45,11 @@ public class Test40 {
 		System.out.println("avg:" + avg(1,2,3,4,5));
 		System.out.println("min:" + min(1,2,3,4,5));
 		System.out.println("max:" + max(1,2,3,4,5));
+		int x = 1;
+		int y = 4;
+		System.out.println("ddddddddddddddddddddd");
+		System.out.println(5%12);
+		
 	}
 
 }
