@@ -1,5 +1,5 @@
 // 하노이의 탑
-
+package chap05;
 import java.util.Scanner;
 
 class Hanoi {

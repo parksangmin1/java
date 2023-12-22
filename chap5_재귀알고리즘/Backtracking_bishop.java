@@ -18,84 +18,7 @@ import java.util.List;
 *  체스판 최대 배치 문제 : king/16, Queen/8, rook/8, bishop/?, knight/?
 *  rook 2개/a, h, knight 2개/b, g, bishop 2개/c, f, queen 1개/black queen은 black 칸에, 폰 8개
 */
-class Point {
-	private int x;
-	private int y;
-	
-	public Point(int x, int y) {
-		this.setX(x);
-		this.setY(y);
-	}
-
-	public int getX() {
-		return x;
-	}
-
-	public void setX(int x) {
-		this.x = x;
-	}
-
-	public int getY() {
-		return y;
-	}
-
-	public void setY(int y) {
-		this.y = y;
-	}
-}
-class Stack3 {
-	private List<Point> stk;
-	private int capa;
-	private int ptr;
-	public Stack3(int max) {
-		ptr = 0;
-		this.capa = max;
-		try {
-			stk = new ArrayList<Point>(capa);
-		} catch (Exception e) {
-			capa=0;
-		}
-	}
-	public void push(Point p)throws StackOverflowError {		
-		if(ptr >= capa)
-			throw new StackOverflowError();
-		stk.add(p);
-		ptr++;
-	}
-	public Point pop() throws EmptyStackException{
-		if (ptr <= 0)
-			throw new EmptyStackException();
-		ptr--;
-		
-		return stk.remove(ptr);
-	}
-	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return ptr <= 0;
-	}
-	public void dump() {
-		//구현
-		if(ptr <= 0)
-			System.out.println("스텍이 비어 있습니다");
-		else {
-			for (int i =0; i < ptr; i++)
-				System.out.println(stk.get(i) +"");
-			
-		}
-	}
-	public int indexOf(Point x) {
-		//구현
-		for(int i = ptr -1; i >= 0; i++)
-			if(stk.get(i) ==x)
-				return i;
-		return -1;
-	}
-	
-	
-}
-
-
-public class Backtracking_Queen2023 {
+public class Backtracking_bishop {
 	public static void solveQueen(int[][] d) throws IllegalAccessException {
 		int count = 0;//퀸 배치 갯수
 		int ix = 0, iy = 0;// 행 ix, 열 iy
@@ -106,7 +29,7 @@ public class Backtracking_Queen2023 {
 		st.push(p);// 스택에 현 위치 객체를 push
 		ix++;//ix는 행별로 퀸 배치되는 것을 말한다.	
 		int resultCount = 0;
-		while (true) {			
+		while (true) {		
 			//pop을 한 후에 현재 위치를 pop 객체를 이용하여 설정한 진행
 			if (st.isEmpty() && ix == 8) { //ix가 8이면 8개 배치 완료, stack이 empty가 아니면 다른 해를 구한다 
 				break;
@@ -121,12 +44,12 @@ public class Backtracking_Queen2023 {
 				iy++;
 				continue;				
 			} 
-				p = new Point(ix, iy);
-				st.push(p);
-				d[ix][iy] =1;
-				count++;
-				ix++;
-				iy =0;		
+			p = new Point(ix, iy);
+			st.push(p);
+			d[ix][iy] =1;
+			count++;
+//			ix++;
+			iy =0;		
 			if (count == 8) { //8개를 모두 배치하면
 				showQueens(d);
 				p = st.pop();
@@ -140,22 +63,6 @@ public class Backtracking_Queen2023 {
 				continue;
 			}	
 		}
-	}
-	public static boolean checkRow(int[][] d, int crow) { //배열 d에서 행 crow에 퀸을 배치할 수 있는지 조사
-		int i, j;
-		for ( i = 0; i <d.length; i++)
-			if(d[crow][i] == 1)
-				return false;
-		return true;
-		
-	}
-
-	public static boolean checkCol(int[][] d, int ccol) {//배열 d에서 열 ccol에 퀸을 배치할 수 있는지 조사
-		
-		for (int[] element : d)
-			if(element[ccol] == 1)
-				return false;
-		return true;
 	}
 //	//배열 d에서 행 cx, 열 cy에 퀸을 남서, 북동 대각선으로 배치할 수 있는지 조사
 	public static boolean checkDiagSW(int[][] d, int cx, int cy) throws IllegalAccessException { // x++, y-- or x--, y++ where 0<= x,y <= 7
@@ -200,7 +107,7 @@ public class Backtracking_Queen2023 {
 	
 //	//배열 d에서 (x,y)에 퀸을 배치할 수 있는지  조사
 	public static boolean checkMove(int[][] d, int x, int y) throws IllegalAccessException {// (x,y)로 이동 가능한지를 check
-		if (checkRow(d, x) && checkCol(d,y) && checkDiagSW(d, x, y) && checkDiagSE(d, x, y))
+		if ( checkDiagSW(d, x, y) && checkDiagSE(d, x, y))
 			return true;
 		else
 			return false;

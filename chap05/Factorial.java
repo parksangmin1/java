@@ -1,5 +1,5 @@
 // 팩토리얼 값을 재귀적으로 구함
-
+package chap05;
 import java.util.Scanner;
 
 class Factorial {

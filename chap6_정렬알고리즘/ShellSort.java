@@ -9,7 +9,7 @@ public class ShellSort {
 			for (int i =h; i < n; i++) {
 				int j;
 				int tmp = a[i];
-				for(j = i =h; j >= 0 && a[j] > tmp; j -=h)
+				for(j = i - h;j >= 0 && j >= 0 && a[j] > tmp; j -=h)
 					a[j +h] = a[j];
 				a[j + h] = tmp;
 			}
@@ -21,12 +21,12 @@ public class ShellSort {
 		int[] x = new int[10];
 		
 		for ( int i = 0; i< x.length; i++) {
-			System.out.println("x["+ i +"]");
+			System.out.print("x["+ i +"]");
 			x[i] = rn.nextInt(100);
 		}
 		shellSort(x, x.length);
-		System.out.println("오름차순으로 정렬 했습니다");
+		System.out.print("오름차순으로 정렬 했습니다");
 		for(int i = 0; i < x.length; i++)
-			System.out.println("x["+ i +"]" + x[i]);
+			System.out.print("x["+ i +"]" + x[i]);
 	}
 }

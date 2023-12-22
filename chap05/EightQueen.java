@@ -1,3 +1,4 @@
+package chap05;
 // 8퀸 문제 풀이
 
 class EightQueen {
